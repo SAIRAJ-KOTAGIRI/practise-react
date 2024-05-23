@@ -1,0 +1,58 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid;
+}
+
+.logo {
+    width: 125px;
+}
+.nav-items {
+    padding: 0px 20px;
+}
+
+.nav-items > ul {
+    font-size: 24px;
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-items > ul > li {
+    padding: 10px;
+    margin: 10px;
+}
+
+.restaurant-card {
+    margin: 5px;
+    width: 200px;
+    padding: 5px;
+    border: 1px solid;
+}
+
+.restaurant-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.restaurant-card:hover {
+    background-color: azure;
+    border: 1.5px solid;
+    cursor: pointer;
+}
+
+.search {
+    padding: 10px;
+}
+
+.res-logo {
+    width: 100%;
+}
+
+.filter-btn, .reset-btn {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.filter-section {
+    display: flex;
+}
