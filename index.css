@@ -48,7 +48,7 @@
     width: 100%;
 }
 
-.filter-btn, .reset-btn {
+.filter-btn, .reset-btn, .search-section{
     margin: 10px;
     cursor: pointer;
 }
@@ -56,3 +56,21 @@
 .filter-section {
     display: flex;
 }
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    background-color: #f0f0f0;
+}
+
+.login {
+    padding: 0 20px;
+    cursor: pointer;
+}
+
