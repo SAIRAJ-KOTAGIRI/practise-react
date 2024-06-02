@@ -1,7 +1,7 @@
 import Restaurant from "./Restaurent"
-import resObj from "../utils/mockdata"
 import { useState, useEffect } from "react"
 import Shimmer from "./Shimmer"
+import { Link } from "react-router-dom"
 
 const Body = () => {
     // let listOfRestaurents = []
@@ -50,7 +50,7 @@ const Body = () => {
             
             <div className="restaurant-container">
                 {
-                    filteredRestaurents?.map(restaurent => <Restaurant key={restaurent?.info?.id} resObj={restaurent}/>)
+                    filteredRestaurents?.map(restaurent => <Link to={"/restaurent/"+restaurent?.info?.id}><Restaurant key={restaurent?.info?.id} resObj={restaurent}/></Link>)
                 }
             </div>
         </div>

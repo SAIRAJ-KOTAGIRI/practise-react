@@ -29,3 +29,6 @@
 # Enable CORS Chrome Extension
 
 # Shimmer UI
+
+# Router
+- createBrowserRouter, RouterProvider, Outlet, Link, useRouteError
