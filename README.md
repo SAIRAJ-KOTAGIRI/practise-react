@@ -31,4 +31,15 @@
 # Shimmer UI
 
 # Router
-- createBrowserRouter, RouterProvider, Outlet, Link, useRouteError
+- createBrowserRouter, RouterProvider, Outlet, Link, useRouteError, useParams
+
+# Class Based Implementation
+
+- extends React.Component
+- Constructor
+- Render
+- ComponentDidMount
+- Render Phase (Constructor, Render, Updating DOM, ComponentDidMount)
+- Updating/Commit Phase (setState(), Render, Updating DOM, ComponentDidUpdate)
+- When two Child Components are in one Class, the componentDidMount for both child classes will run in the last because the DOM is the expensive thing for the browser so, React will batch the two Child ComponentDidMount() and execute them at once.
+- ComponentWillUnmount()

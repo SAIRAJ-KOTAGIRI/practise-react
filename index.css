@@ -90,3 +90,8 @@
 .each-res-detail {
     margin: 5px;
 }
+
+.user-card {
+    padding: 10px;
+    border: 1px solid;
+}
