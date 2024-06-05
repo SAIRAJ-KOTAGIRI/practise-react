@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client"
 import Header from "./components/Header"
 import Body  from "./components/Body";
@@ -7,6 +7,7 @@ import Contact from "./components/Contact";
 import RestaurentMenu from "./components/RestaurentMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Error from "./components/Error";
+// import Grocery from "./components/Grocery";
 
 
 // JSX is not as HTML, but JSX is like HTML Syntax
@@ -26,6 +27,21 @@ import Error from "./components/Error";
 //         <h1>Heading Component from React Functional Component</h1>
 //     </div>
 // );
+
+
+
+/** 
+ * Chunking
+ * Dymanic Bundling
+ * Code Splitting
+ * Lazy Loading
+ * On Demand Loading
+ */
+
+
+const Grocery = lazy(() => 
+  import("./components/Grocery")
+)
 
 const AppLayout = () => {
     return (
@@ -48,6 +64,10 @@ const appRouter = createBrowserRouter([
       {
         path: '/about',
         element: <About />
+      },
+      {
+        path: '/grocery',
+        element: <Suspense fallback={<h1>Loading...</h1>}><Grocery /></Suspense>
       },
       {
         path: '/contact',

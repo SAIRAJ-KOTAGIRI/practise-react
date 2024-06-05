@@ -50,3 +50,7 @@
 # Custom Hook
 - useRestaurentMenu()
 - useOnlineStatus()
+
+# Lazy Loading, Chunking, Dynamic Building, Code Splitting, On Demand Loading (Splitting the bundler)
+
+- Lazy, Suspense from React Library
