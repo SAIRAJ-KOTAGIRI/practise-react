@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { CDN_URL, MENU_CDN_URL, RESTAURENT_DATA_CDN_URL } from "../utils/constants";
+import { CDN_URL, MENU_CDN_URL } from "../utils/constants";
+import useRestaurentMenu from "../utils/useRestaurentMenu";
 const RestaurentMenu = () => {
     
-    const [restaurentData, setRestaurentData] = useState(null)
-
     const { resId } = useParams()
 
+    /**
+     * the below code moved as custom hook
+    const [restaurentData, setRestaurentData] = useState(null)
     useEffect(() => {
         fetchMenu();
     }, [])
@@ -15,15 +16,15 @@ const RestaurentMenu = () => {
     const fetchMenu = async () => {
         const data = await fetch(RESTAURENT_DATA_CDN_URL+resId+`&catalog_qa=undefined&submitAction=ENTER`);
         const jsondata = await data.json();
-        console.log(jsondata)
         setRestaurentData(jsondata.data.cards)
-        console.log(restaurentData)
     }
+     */
+
+    const restaurentData = useRestaurentMenu(resId)
 
     const {name, locality, areaName, cloudinaryImageId, costForTwoMessage, cuisines} = restaurentData?.length ? restaurentData[2]?.card?.card?.info : {}
 
     const {itemCards} = restaurentData?.length ? restaurentData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card : {}
-    console.log(itemCards)
     return (restaurentData == null) ? <Shimmer /> : (
         <div className="container res-menu">
             <img className="res-menu-logo" alt="res-menu-logo" src={CDN_URL+cloudinaryImageId}/>

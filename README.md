@@ -43,3 +43,9 @@
 - Updating/Commit Phase (setState(), Render, Updating DOM, ComponentDidUpdate)
 - When two Child Components are in one Class, the componentDidMount for both child classes will run in the last because the DOM is the expensive thing for the browser so, React will batch the two Child ComponentDidMount() and execute them at once.
 - ComponentWillUnmount()
+
+# Functional Component
+- Added Unmounting Phase
+
+# Custom Hook
+- useRestaurentMenu()
