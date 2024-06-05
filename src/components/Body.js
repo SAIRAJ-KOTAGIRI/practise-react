@@ -50,7 +50,7 @@ const Body = () => {
             
             <div className="restaurant-container">
                 {
-                    filteredRestaurents?.map(restaurent => <Link to={"/restaurent/"+restaurent?.info?.id}><Restaurant key={restaurent?.info?.id} resObj={restaurent}/></Link>)
+                    filteredRestaurents?.map(restaurent => <Link key={restaurent?.info?.id} to={"/restaurent/"+restaurent?.info?.id}><Restaurant key={restaurent?.info?.id} resObj={restaurent}/></Link>)
                 }
             </div>
         </div>
