@@ -54,3 +54,8 @@
 # Lazy Loading, Chunking, Dynamic Building, Code Splitting, On Demand Loading (Splitting the bundler)
 
 - Lazy, Suspense from React Library
+
+# Type Of CSS we can use
+- SaSS, Material UI, Style Component, Ant Design, Boostrap, Tailwind CSS
+
+- Added Tailwind CSS
