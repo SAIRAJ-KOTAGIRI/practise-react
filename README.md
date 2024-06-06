@@ -59,3 +59,6 @@
 - SaSS, Material UI, Style Component, Ant Design, Boostrap, Tailwind CSS
 
 - Added Tailwind CSS
+
+# Higher Order Components
+Take the component and returns the Component

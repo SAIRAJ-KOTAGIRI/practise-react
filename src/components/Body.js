@@ -1,4 +1,4 @@
-import Restaurant from "./Restaurent"
+import Restaurant,  { withPromotedLabel } from "./Restaurent"
 import { useState, useEffect } from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
@@ -10,6 +10,8 @@ const Body = () => {
     let [searchTxt, setSearchTxt] = useState("");
     let [filteredRestaurents, setFilteredRestaurents] = useState([])
 
+    const RestaurentCardPromoted = withPromotedLabel(Restaurant)
+
     useEffect(()=> {
         fetchData();
     }, [])
@@ -17,12 +19,18 @@ const Body = () => {
     const fetchData = async () => {
         const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4875418&lng=78.3953462&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const json = await data.json();
-        setListOfRestaurents(json?.data?.cards[4]?.card?.card?.gridElements
-?.infoWithStyle?.restaurants
-);
-        setFilteredRestaurents(json?.data?.cards[4]?.card?.card?.gridElements
-            ?.infoWithStyle?.restaurants
-            );
+        
+        const {restaurants} = json?.data?.cards[4]?.card?.card?.gridElements
+        ?.infoWithStyle
+        if(restaurants?.length) {
+            restaurants?.map((eachItem) => {
+                eachItem.info["promoted"] = (Math.random() < 0.5);
+            })
+            console.log(restaurants, "itemCards")
+        }
+
+        setListOfRestaurents(restaurants);
+        setFilteredRestaurents(restaurants);
     }
 
     const onlineStatus = useOnlineStatus();
@@ -61,7 +69,11 @@ const Body = () => {
             
             <div className="restaurant-container flex flex-wrap">
                 {
-                    filteredRestaurents?.map(restaurent => <Link key={restaurent?.info?.id} to={"/restaurent/"+restaurent?.info?.id}><Restaurant key={restaurent?.info?.id} resObj={restaurent}/></Link>)
+                    filteredRestaurents?.map(restaurent => <Link key={restaurent?.info?.id} to={"/restaurent/"+restaurent?.info?.id}>
+                        {
+                        restaurent?.info?.promoted ? <RestaurentCardPromoted key={restaurent?.info?.id} resObj={restaurent}/> : <Restaurant key={restaurent?.info?.id} resObj={restaurent}/>
+                        }
+                    </Link>)
                 }
             </div>
         </div>

@@ -25,7 +25,24 @@ const RestaurentMenu = () => {
     const {name, locality, areaName, cloudinaryImageId, costForTwoMessage, cuisines} = restaurentData?.length ? restaurentData[2]?.card?.card?.info : {}
 
     const {itemCards} = restaurentData?.length ? restaurentData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card : {}
-    return (restaurentData == null) ? <Shimmer /> : (
+
+    if(restaurentData == null) {
+        return (
+            <Shimmer /> 
+        )
+    }
+
+    // if(itemCards?.length) {
+    //     let itemCardsTemp = {...itemCards}
+    //     itemCardsTemp?.map((eachItem) => {
+    //         eachItem.card.info["promoted"] = (Math.random() < 0.5);
+    //     })
+    //     console.log(itemCardsTemp)
+    // }
+
+    
+
+    return (
         <div className="px-10 pt-5">
             <img className="w-full h-[500px]" alt="res-menu-logo" src={CDN_URL+cloudinaryImageId}/>
             <h1 className="font-bold text-lg">{name}</h1>
