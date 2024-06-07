@@ -2,6 +2,8 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { CDN_URL, MENU_CDN_URL } from "../utils/constants";
 import useRestaurentMenu from "../utils/useRestaurentMenu";
+import RestaurentCategory from "./RestaurentCategory";
+
 const RestaurentMenu = () => {
     
     const { resId } = useParams()
@@ -24,7 +26,22 @@ const RestaurentMenu = () => {
 
     const {name, locality, areaName, cloudinaryImageId, costForTwoMessage, cuisines} = restaurentData?.length ? restaurentData[2]?.card?.card?.info : {}
 
-    const {itemCards} = restaurentData?.length ? restaurentData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card : {}
+    // let dishesData = [];
+    // if(restaurentData?.length && restaurentData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.length) {
+    //     let loopingDishesData = restaurentData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    //     console.log(loopingDishesData)
+    //     loopingDishesData?.forEach((eachRec) => {
+    //         console.log(eachRec?.card?.card["@type"])
+    //         if(eachRec?.card?.card?.title && eachRec?.card?.card?.itemCards?.length) {
+    //             // console.log(eachRec?.card?.card?.itemCards)
+    //             dishesData = [...dishesData, ...eachRec?.card?.card?.itemCards]
+    //         }
+    //     })
+    //     console.log(dishesData, "asda")
+    // }
+
+    const categories = restaurentData?.length ? restaurentData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c?.card?.["card"]?.["@type"] === ("type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")) : [];
+    console.log("categories", categories)
 
     if(restaurentData == null) {
         return (
@@ -43,21 +60,25 @@ const RestaurentMenu = () => {
     
 
     return (
-        <div className="px-10 pt-5">
-            <img className="w-full h-[500px]" alt="res-menu-logo" src={CDN_URL+cloudinaryImageId}/>
-            <h1 className="font-bold text-lg">{name}</h1>
-            <h2 className="font-bold">{locality} , {areaName}</h2>
+        <div className="text-center">
+            <img className="w-full h-[500px] my-10" alt="res-menu-logo" src={CDN_URL+cloudinaryImageId}/>
+            <h1 className="font-bold text-2xl">{name}</h1>
+            <h2 className="font-bold mb-10">{locality} , {areaName}</h2>
             <h3>{cuisines?.join(', ')}</h3>
             <h3>{costForTwoMessage}</h3>
             <h2 className="font-bold pt-10 text-lg">Menu</h2>
-            <ul className="flex flex-wrap">
-                {itemCards?.map((eachItem) => (
-                    <div className="max-w-[350px] each-res-card m-4 p-4 bg-gray-100 cursor-pointer hover:bg-gray-200" key={eachItem?.card?.info?.id}>
+            {/* <ul className="flex flex-wrap">
+                {itemCards?.map((eachItem, index) => (
+                    <div className="max-w-[350px] each-res-card m-4 p-4 bg-gray-100 cursor-pointer hover:bg-gray-200" key={eachItem?.card?.info?.id + index}>
                         <img className="each-res-menu-logo w-[300px]" alt="each-res-menu-logo" src={MENU_CDN_URL+eachItem?.card?.info?.imageId}/>
                         <li className="each-res-detail break-words">{eachItem?.card?.info?.name} - Rs: {eachItem?.card?.info?.price / 100}</li>
                     </div>
                 ))}
-            </ul>
+            </ul> */}
+            {categories.length}
+            {categories?.map((category, index) => (
+                <RestaurentCategory categoryData={category?.card?.card} key={category?.card?.card?.title}/>
+            ))}
         </div>
     )
 

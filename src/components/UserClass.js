@@ -23,7 +23,6 @@ class UserClass extends React.Component {
     render() {
         const {count} = this.state
         const {login} = this.state.userinfo
-        console.log(this.state.userinfo)
         return (
             <div className="user-card">
                 <p>Count: {count}</p>

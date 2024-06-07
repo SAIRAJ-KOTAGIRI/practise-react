@@ -26,7 +26,6 @@ const Body = () => {
             restaurants?.map((eachItem) => {
                 eachItem.info["promoted"] = (Math.random() < 0.5);
             })
-            console.log(restaurants, "itemCards")
         }
 
         setListOfRestaurents(restaurants);
