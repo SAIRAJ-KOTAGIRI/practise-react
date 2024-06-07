@@ -2,14 +2,11 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 
 const RestaurentCategory = (props) => {
-    const {categoryData} = props
-
-    const [showItems, setShowItems] = useState(false)
+    const {categoryData, showItems, setShowIndex} = props
 
     const handleClick = () => {
-        setShowItems(!showItems)
+        setShowIndex()
     }
-
     return (
         <div>
             <div className="w-6/12 bg-gray-100 shadow-lg mx-auto my-4 items-center hover:bg-gray-200">

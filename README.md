@@ -62,3 +62,5 @@
 
 # Higher Order Components
 Take the component and returns the Component
+
+# Lifting the State Up

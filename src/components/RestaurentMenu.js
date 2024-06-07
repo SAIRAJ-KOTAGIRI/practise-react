@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import { CDN_URL, MENU_CDN_URL } from "../utils/constants";
 import useRestaurentMenu from "../utils/useRestaurentMenu";
 import RestaurentCategory from "./RestaurentCategory";
+import { useState } from "react";
 
 const RestaurentMenu = () => {
     
     const { resId } = useParams()
+
+    const [showIndex, setShowIndex] = useState(0)
 
     /**
      * the below code moved as custom hook
@@ -75,9 +78,15 @@ const RestaurentMenu = () => {
                     </div>
                 ))}
             </ul> */}
-            {categories.length}
             {categories?.map((category, index) => (
-                <RestaurentCategory categoryData={category?.card?.card} key={category?.card?.card?.title}/>
+                // Controlled Component
+                <RestaurentCategory 
+                    showItems={index == showIndex}
+                    categoryData={category?.card?.card} 
+                    setShowIndex={() => setShowIndex(index)}
+                    key={category?.card?.card?.title}
+                    />
+                    
             ))}
         </div>
     )
