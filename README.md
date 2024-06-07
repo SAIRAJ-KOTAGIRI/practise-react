@@ -72,3 +72,17 @@ Take the component and returns the Component
     - UserContext.Provider
 - Class Based Component
     UserContext.Consumer
+
+# Store Management
+    - Zustand
+    - Redux (Old)
+    - Redux Toolkit (Latest)
+
+# Redux Toolkit
+   - Install @reduxjs/toolkit and react-redux
+   - Build Our Store (configureStore)
+   - Connect the Store to APP (Provider)
+   - Create Slice 
+   - Dispatch (Action) - (useDispatch)
+   - Reducer
+   - Subscribe (useSelector)

@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 
@@ -10,6 +11,9 @@ const Header = () => {
     const [btnName, setBtnName] = useState("Login")
 
     const {loggedInUser} = useContext(UserContext)
+
+    // Subscribing to the store using Selector
+    const cartItems = useSelector((store) => store.cart.items)
 
     // if there is no dependency array, useEffect will be called on every Render
     // useEffect(() => {
@@ -42,7 +46,7 @@ const Header = () => {
                     <li className="px-4 cursor-pointer hover:bg-pink-200"><Link to="/grocery">Grocery</Link></li>
                     <li className="px-4 cursor-pointer hover:bg-pink-200"><Link to="/about">About Us</Link></li>
                     <li className="px-4 cursor-pointer hover:bg-pink-200"><Link to="/contact">Contact Us</Link></li>
-                    <li className="px-4 cursor-pointer hover:bg-pink-200">Cart</li>
+                    <li className="px-4 cursor-pointer hover:bg-pink-200 font-bold"><Link to="/cart">Cart ({cartItems?.length})</Link></li>
                     <button className="login px-4 cursor-pointer hover:bg-pink-200" onClick={() =>
                         setBtnName((btnName == "Login" ? "Logout" : "Login"))
                     }>{btnName}</button>
