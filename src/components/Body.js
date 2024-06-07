@@ -1,14 +1,17 @@
 import Restaurant,  { withPromotedLabel } from "./Restaurent"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
+import UserContext from "../utils/UserContext"
 
 const Body = () => {
     // let listOfRestaurents = []
     let [listOfRestaurents, setListOfRestaurents] = useState([]);
     let [searchTxt, setSearchTxt] = useState("");
     let [filteredRestaurents, setFilteredRestaurents] = useState([])
+
+    const {setUserName, loggedInUser} = useContext(UserContext)
 
     const RestaurentCardPromoted = withPromotedLabel(Restaurant)
 
@@ -64,6 +67,11 @@ const Body = () => {
                         setSearchTxt("")
                     }}>Reset</button>
                 </div>
+                USER NAME (React Context): <input className="p-2 m-2 border border-solid border-gray-300" 
+                value={loggedInUser}
+                onChange={(e) => {
+                    setUserName(e.target.value)
+                }} type="text"/>
             </div>
             
             <div className="restaurant-container flex flex-wrap">

@@ -64,3 +64,11 @@
 Take the component and returns the Component
 
 # Lifting the State Up
+
+# React Context
+- Functional Based Component
+    - createContext
+    - useContext
+    - UserContext.Provider
+- Class Based Component
+    UserContext.Consumer
