@@ -3,6 +3,24 @@ import Contact from "../Contact"
 import "@testing-library/jest-dom"
 
 describe("Contact Us Page Test Case", () => {
+
+
+    beforeAll(() => {
+        console.log("Before All")
+    })
+
+    beforeEach(() => {
+        console.log("Before Each")
+    })
+
+    afterAll(() => {
+        console.log("After All")
+    })
+    
+    afterEach(() => {
+        console.log("After Each")
+    })
+
     it("Should Load the Contact US Component", () => {
         render(<Contact/>);
         const heading = screen.getByRole("heading")

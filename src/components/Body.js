@@ -30,7 +30,6 @@ const Body = () => {
                 eachItem.info["promoted"] = (Math.random() < 0.5);
             })
         }
-
         setListOfRestaurents(restaurants);
         setFilteredRestaurents(restaurants);
     }
@@ -49,7 +48,7 @@ const Body = () => {
         <div className="body">
             <div className="filter-section flex items-center">
                 <div className="search-section m-4 p-4 border-solid">
-                    <input className="border border-solid border-gray-300" type="text" value={searchTxt} onChange={(e) => {
+                    <input data-testid="searchInput" className="border border-solid border-gray-300" type="text" value={searchTxt} onChange={(e) => {
                         setSearchTxt(e.target.value)
                     }}/>
                     <button className="px-4 py-2 bg-green-100 m-4 border-solid rounded-lg" onClick={() => {

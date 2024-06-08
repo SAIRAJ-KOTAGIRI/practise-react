@@ -14,7 +14,7 @@ const ItemList = ({items, fromcart}) => {
     return (
         <div>
             {items.map((item, index) => (
-                <div key={item?.card?.info?.id + index} className="flex text-left p-2 m-2 justify-between border-gray-500 border-b-2">
+                <div key={item?.card?.info?.id + index} data-testid="foodItems" className="flex text-left p-2 m-2 justify-between border-gray-500 border-b-2">
                     <div className="w-9/12">
                         <div className="py-2">
                             <span>{item?.card?.info?.name}</span>
@@ -27,7 +27,7 @@ const ItemList = ({items, fromcart}) => {
                     <div className="w-3/12">
                         {
                             fromcart ? <></> : <div className="absolute">
-                                <button className="cursor-pointer p-2 bg-black text-white shadow-lg mx-16 rounded-lg"  onClick={() => handleAddItem(item)}>Add + </button>
+                                <button className="cursor-pointer p-2 bg-black text-white shadow-lg mx-16 rounded-lg"  onClick={() => handleAddItem(item)}>Add +</button>
                             </div>
                         }
                         
