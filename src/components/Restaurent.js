@@ -3,6 +3,7 @@ import { CDN_URL } from "../utils/constants"
 import UserContext from "../utils/UserContext"
 
 const Restaurant = (props) => {
+    console.log(props)
     const {name, cuisines, avgRating, locality, cloudinaryImageId, id} = props?.resObj?.info
     const {loggedInUser} = useContext(UserContext)
     return (

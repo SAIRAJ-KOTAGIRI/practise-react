@@ -1,0 +1,93 @@
+{
+    "info": {
+        "id": "363823",
+        "name": "Wow! Momo",
+        "cloudinaryImageId": "64fd45fd9f44c1737bc446e470bed666",
+        "locality": "Kukatpally",
+        "areaName": "Kukatpally",
+        "costForTwo": "₹300 for two",
+        "cuisines": [
+            "Tibetan",
+            "Healthy Food",
+            "Asian",
+            "Chinese",
+            "Snacks",
+            "Continental",
+            "Desserts",
+            "Beverages"
+        ],
+        "avgRating": 4.2,
+        "parentId": "1776",
+        "avgRatingString": "4.2",
+        "totalRatingsString": "1K+",
+        "sla": {
+            "deliveryTime": 49,
+            "lastMileTravel": 1.6,
+            "serviceability": "SERVICEABLE",
+            "slaString": "45-50 mins",
+            "lastMileTravelString": "1.6 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-06-05 23:00:00",
+            "opened": true
+        },
+        "badges": {
+            "imageBadges": [
+                {
+                    "imageId": "Rxawards/_CATEGORY-Chinese.png",
+                    "description": "Delivery!"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "Delivery!",
+                                "imageId": "Rxawards/_CATEGORY-Chinese.png"
+                            }
+                        }
+                    ]
+                },
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "50% OFF",
+            "subHeader": "UPTO ₹100"
+        },
+        "orderabilityCommunication": {
+            "title": {},
+            "subTitle": {},
+            "message": {},
+            "customIcon": {}
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "promoted": true
+    },
+    "analytics": {
+        "context": "seo-data-3c26966f-008f-43dc-9c12-163fdffb7108"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/wow-momo-kukatpally-hyderabad-363823",
+        "text": "RESTAURANT_MENU",
+        "type": "WEBLINK"
+    },
+    "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
+}
